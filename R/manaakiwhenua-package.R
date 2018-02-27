@@ -6,6 +6,5 @@
 #' @name manaakiwhenua
 #' @docType package
 #' @author Pierre Roudier (roudierp@@landcareresearch.co.nz)
-#' @import ggplot2 extrafont
-#' @import rmarkdown knitr htmltools
+#' @import ggplot2 
 NULL
