@@ -3,7 +3,7 @@ Title: Themes and Graphics Resources for Manaaki Whenua
 Version: 0.0.0.9000
 Authors@R: person("Pierre", "Roudier", email = "roudierp@landcareresearch.co.nz", role = c("aut", "cre"))
 Description: A compilation of colour palettes and 'ggplot2' themes and scales for the new Manaaki Whenua branding scheme.
-Depends: R (>= 3.4.3)
+Depends: R (>= 3.1)
 License: GPL (>=3)
 Encoding: UTF-8
 LazyData: true
