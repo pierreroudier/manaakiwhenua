@@ -8,6 +8,9 @@
 \usage{
 mw_palettes
 }
+\description{
+List of colours for the Manaaki Whenua palettes
+}
 \author{
 Pierre Roudier
 }

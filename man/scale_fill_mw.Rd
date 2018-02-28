@@ -15,3 +15,6 @@ scale_fill_mw(palette = "dark", discrete = TRUE, reverse = FALSE, ...)
 
 \item{...}{Additional arguments passed to discrete_scale() or scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE}
 }
+\description{
+Fill scale constructor for using Manaaki Whenua palettes in `ggplot2`
+}

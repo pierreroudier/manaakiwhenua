@@ -2,9 +2,22 @@
 % Please edit documentation in R/themes.R
 \name{theme_mw_dark}
 \alias{theme_mw_dark}
-\title{Manaaki Whenua themes for `ggplot2`}
+\alias{theme_mw_bw}
+\title{Manaaki Whenua themes}
 \usage{
 theme_mw_dark(base_family = "Sans", base_size = 11, ticks = FALSE)
+
+theme_mw_bw(base_family = "Sans", base_size = 11, ticks = FALSE)
+}
+\arguments{
+\item{base_family}{...}
+
+\item{base_size}{...}
+
+\item{ticks}{...}
+}
+\description{
+Collection of Mannaaki Whenua themes for `ggplot2`
 }
 \author{
 Pierre Roudier

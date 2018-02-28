@@ -1,4 +1,5 @@
 #' @title Colour scale constructor from the Manaaki Whenua colour palettes
+#' @description Colour scale constructor for using Manaaki Whenua palettes in `ggplot2`
 #' @param palette Character name of the palette (see `mw_palettes`)
 #' @param discrete Boolean indicating whether colour aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
@@ -20,7 +21,7 @@ scale_colour_mw <- function(palette = "dark", discrete = TRUE, reverse = FALSE, 
 scale_color_mw <- scale_colour_mw
 
 #' @title Fill scale constructor from the Manaaki Whenua colour palettes
-#'
+#' @description Fill scale constructor for using Manaaki Whenua palettes in `ggplot2`
 #' @param palette Character name of the palette (see `mw_palettes`)
 #' @param discrete Boolean indicating whether colour aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed

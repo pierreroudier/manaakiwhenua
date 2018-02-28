@@ -1,4 +1,8 @@
-#' @title Manaaki Whenua themes for `ggplot2`
+#' @title Manaaki Whenua themes
+#' @description Collection of Mannaaki Whenua themes for `ggplot2`
+#' @param base_family ...
+#' @param base_size ...
+#' @param ticks ...
 #' @author Pierre Roudier
 #' @export 
 theme_mw_dark <- function(base_family = "Sans", base_size = 11, ticks = FALSE) {
@@ -57,6 +61,7 @@ theme_mw_dark <- function(base_family = "Sans", base_size = 11, ticks = FALSE) {
   ret
 }
 
+#' @rdname theme_mw_dark
 #' @export 
 theme_mw_bw <- function(base_family = "Sans", base_size = 11, ticks = FALSE) {
   

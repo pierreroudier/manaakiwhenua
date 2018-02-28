@@ -13,3 +13,6 @@ mw_pal(palette = "dark", reverse = FALSE, ...)
 
 \item{...}{Additional arguments to pass to colorRampPalette()}
 }
+\description{
+Generates a colour palette function from one of the Manaaki Whenua suite of colours.
+}
