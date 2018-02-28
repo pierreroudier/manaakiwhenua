@@ -1,0 +1,116 @@
+---
+title: "Introduction to the `manaakiwhenua` package"
+author: "Pierre Roudier"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction-manaakiwhenua}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.width = 8, 
+  fig.height = 6,
+  comment = "#>"
+)
+```
+
+```{r libs, message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(manaakiwhenua)
+```
+
+```{r colours, echo=FALSE}
+df_colours <- data.frame(
+  colour = mw_colours,
+  name = names(mw_colours)
+)
+
+p_colours <- ggplot(df_colours) +
+  geom_rect(aes(xmin = 0, xmax = 5, ymin = 0, ymax = 1, fill = name)) +
+  geom_text(aes(x = 2.5, y = 0.5, label = colour), colour = "white") +
+  facet_wrap(~name, strip.position = "bottom") +
+  scale_fill_manual(guide = FALSE, name = "", values = mw_colours) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+
+print(p_colours)
+```
+
+```{r palettes}
+mw_pal("secondary")(n = 10)
+```
+
+```{r fig_palettes, echo=FALSE, warning=FALSE}
+n <- 12
+
+pals <- names(mw_palettes)
+names(pals) <- pals
+
+pal_cols <- do.call(rbind, lapply(pals, function(x) mw_pal(x)(n = n)) )
+pal_cols <- data.frame(name = rownames(pal_cols), pal_cols)
+m_pal_cols <- tidyr::gather(pal_cols, key, value, -name)
+m_pal_cols <- dplyr::mutate(m_pal_cols, key = as.numeric(stringr::str_remove(key, "X")))
+
+cols <- m_pal_cols$value
+names(cols) <- m_pal_cols$value
+  
+ggplot(m_pal_cols) +
+  geom_rect(aes(xmin = key - 0.5, xmax = key + 0.5, ymin = 0, ymax = 1, fill = value)) +
+  geom_text(aes(x = key, y = 0.5, label = value, angle = 90), colour = "white") +
+  facet_wrap(~name, strip.position = "bottom") +
+  scale_fill_manual(guide = FALSE, name = "", values = cols) +
+  theme_minimal() +
+  theme(
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text = element_blank(),
+    strip.text = element_text(face = "bold")
+  )
+
+```
+
+
+```{r data}
+set.seed(20180228)
+d <- sample_n(diamonds, size = 1000, replace = FALSE)
+```
+
+```{r plot}
+p <- ggplot(d) + 
+  geom_point(aes(x = carat, y = price, colour = cut))
+
+print(p)
+```
+
+```{r mw_theme-1}
+p +
+  scale_colour_mw(palette = "secondary") +
+  theme_mw_dark()
+```
+
+```{r mw_theme-3}
+p +
+  scale_colour_mw(palette = "secondary") +
+  theme_mw_bw()
+```
+
+```{r mw_theme-2}
+p +
+  labs(
+    title = "This is a plot", 
+    subtitle = "And this is a subcaption for this plot",
+    caption = "Source: Pierre Roudier, Manaaki Whenua, 2018."
+  ) +
+  scale_colour_mw(palette = "secondary") +
+  theme_mw_dark(ticks = TRUE)
+```
